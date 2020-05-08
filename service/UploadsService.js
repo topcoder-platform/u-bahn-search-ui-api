@@ -11,7 +11,7 @@
 exports.createUpload = function(upload) {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = "";
+    examples['application/json'] = {"created":"2020-05-08T17:31:44.947Z","updated":"2020-05-08T17:31:44.947Z","createdBy":23124329,"updatedBy":23124329,"id":"5af256f0-9152-11ea-bb37-0242ac130002","url":"https://amockS3urlthatonlyadmincanaccess.com","status":"pending","info":""};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -30,7 +30,7 @@ exports.createUpload = function(upload) {
 exports.getUploadById = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = "";
+    examples['application/json'] = {"created":"2020-05-08T17:31:44.947Z","updated":"2020-05-08T17:31:44.947Z","createdBy":23124329,"updatedBy":23124329,"id":"5af256f0-9152-11ea-bb37-0242ac130002","url":"https://amockS3urlthatonlyadmincanaccess.com","status":"completed","info":""};
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {
@@ -58,4 +58,3 @@ exports.updateUploadById = function(body) {
     }
   });
 }
-

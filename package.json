@@ -4,8 +4,8 @@
   "description": "This is the API specification for the User Interface server that will host the front end for the Project UBahn application",
   "main": "index.js",
   "scripts": {
-	"prestart": "npm install",
-	"start": "node index.js"
+    "prestart": "npm install",
+    "start": "node index.js"
   },
   "keywords": [
     "swagger"
