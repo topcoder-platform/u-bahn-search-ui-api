@@ -1,0 +1,20 @@
+{
+  "name": "ubahn-user-interface-server",
+  "version": "1.0.0",
+  "description": "This is the API specification for the User Interface server that will host the front end for the Project UBahn application",
+  "main": "index.js",
+  "scripts": {
+	"prestart": "npm install",
+	"start": "node index.js"
+  },
+  "keywords": [
+    "swagger"
+  ],
+  "license": "Unlicense",
+  "private": true,
+  "dependencies": {
+    "connect": "^3.2.0",
+    "js-yaml": "^3.3.0",
+    "swagger-tools": "0.10.1"
+  }
+}
