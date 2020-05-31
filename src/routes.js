@@ -65,5 +65,11 @@ module.exports = {
       access: constants.AllAuthenticatedUsers,
       scopes: [constants.Scopes.GetTemplate, constants.Scopes.AllTemplate]
     }
+  },
+  '/health': {
+    get: {
+      controller: 'HealthCheckController',
+      method: 'check'
+    }
   }
 }

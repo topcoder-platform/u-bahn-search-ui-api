@@ -24,6 +24,8 @@ Configuration for the application is at `config/default.js` and `config/producti
 - API_VERSION: the API version
 - AUTH_SECRET: TC Authentication secret
 - VALID_ISSUERS: valid issuers for TC authentication
+- AMAZON.AWS_ACCESS_KEY_ID: The AWS access key
+- AMAZON.AWS_SECRET_ACCESS_KEY: The AWS secret key
 - AMAZON.AWS_REGION: The Amazon region to use when connecting. For local dynamodb you can set fake value.
 - AMAZON.IS_LOCAL_DB: Use local or AWS Amazon DynamoDB
 - AMAZON.DYNAMODB_URL: The local url, if using local Amazon DynamoDB

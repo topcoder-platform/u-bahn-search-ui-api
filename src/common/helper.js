@@ -15,8 +15,8 @@ const busApiClient = busApi(_.pick(config, ['AUTH0_URL', 'AUTH0_AUDIENCE', 'TOKE
 let dbInstance
 
 AWS.config.update({
-  // accessKeyId: config.AMAZON.AWS_ACCESS_KEY_ID,
-  // secretAccessKey: config.AMAZON.AWS_SECRET_ACCESS_KEY,
+  accessKeyId: config.AMAZON.AWS_ACCESS_KEY_ID,
+  secretAccessKey: config.AMAZON.AWS_SECRET_ACCESS_KEY,
   region: config.AMAZON.AWS_REGION
 })
 
