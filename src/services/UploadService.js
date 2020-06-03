@@ -32,7 +32,7 @@ getEntity.schema = {
 async function create (authUser, upload) {
   const id = uuid()
   // upload file to s3
-  const objectKey = await helper.uploadToS3(config.UPLOAD_S3_BUCKET, upload.buffer, id)
+  const objectKey = await helper.uploadToS3(config.UPLOAD_S3_BUCKET, upload, id)
 
   const currDate = new Date().toISOString()
   const item = {

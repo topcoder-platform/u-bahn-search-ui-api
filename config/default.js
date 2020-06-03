@@ -35,7 +35,7 @@ module.exports = {
     // Below three configuration is required if IS_LOCAL_DB is true
     DYNAMODB_URL: process.env.DYNAMODB_URL || 'http://localhost:8000',
     DYNAMODB_READ_CAPACITY_UNITS: process.env.DYNAMODB_READ_CAPACITY_UNITS || 10,
-    DYNAMODB_WRITE_CAPACITY_UNITS: process.env.DYNAMODB_WRITE_CAPACITY_UNITS || 5,
+    DYNAMODB_WRITE_CAPACITY_UNITS: process.env.DYNAMODB_WRITE_CAPACITY_UNITS || 5
   },
 
   TEMPLATE_FILE_MAX_SIZE: process.env.TEMPLATE_FILE_MAX_SIZE || 2 * 1024 * 1024,

@@ -31,7 +31,7 @@ getEntity.schema = {
 async function uploadEntity (authUser, template, data) {
   await helper.validateDuplicate(config.AMAZON.DYNAMODB_TEMPLATE_TABLE, 'name', data.name)
   // upload file to s3
-  const objectKey = await helper.uploadToS3(config.TEMPLATE_S3_BUCKET, template.buffer, data.name)
+  const objectKey = await helper.uploadToS3(config.TEMPLATE_S3_BUCKET, template, data.name)
 
   const currDate = new Date().toISOString()
   const item = _.extend({

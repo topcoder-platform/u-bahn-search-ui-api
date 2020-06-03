@@ -4,6 +4,7 @@
 const _ = require('lodash')
 const config = require('config')
 const AWS = require('aws-sdk')
+const path = require('path')
 const models = require('../models')
 const errors = require('./errors')
 const logger = require('./logger')
@@ -176,7 +177,21 @@ async function update (dbItem, data) {
  * @returns {string} objectKey
  */
 async function uploadToS3 (bucket, file, fileName) {
-  await s3.upload({ Bucket: bucket, Key: fileName, Body: file }).promise()
+  const extension = path.extname(file.originalname)
+
+  if (fileName.indexOf(extension) === -1) {
+    fileName = `${fileName}${extension}`
+  }
+
+  await s3.upload({
+    Bucket: bucket,
+    Key: fileName,
+    Body: file.buffer,
+    ContentType: file.mimetype,
+    Metadata: {
+      originalname: file.originalname
+    }
+  }).promise()
   return `${bucket}/${fileName}`
 }
 
