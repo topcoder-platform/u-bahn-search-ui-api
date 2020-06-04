@@ -192,7 +192,7 @@ async function uploadToS3 (bucket, file, fileName) {
       originalname: file.originalname
     }
   }).promise()
-  return `${bucket}/${fileName}`
+  return fileName
 }
 
 /**
@@ -201,10 +201,9 @@ async function uploadToS3 (bucket, file, fileName) {
  * @returns {string} signed url
  */
 function generateS3Url (objectKey) {
-  const [Bucket, Key] = _.split(objectKey, '/', 2)
   const url = s3.getSignedUrl('getObject', {
-    Bucket,
-    Key,
+    Bucket: config.UPLOAD_S3_BUCKET,
+    Key: objectKey,
     Expires: parseInt(config.S3_OBJECT_URL_EXPIRY_TIME)
   })
   return url

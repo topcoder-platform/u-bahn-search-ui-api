@@ -4,6 +4,10 @@
 const _ = require('lodash')
 const config = require('config')
 const HttpStatus = require('http-status-codes')
+const fs = require('fs')
+const path = require('path')
+const swaggerUi = require('swagger-ui-express')
+const jsyaml = require('js-yaml')
 const helper = require('./src/common/helper')
 const errors = require('./src/common/errors')
 const routes = require('./src/routes')
@@ -105,6 +109,11 @@ module.exports = (app) => {
       }
     })
   })
+
+  const spec = fs.readFileSync(path.join(__dirname, 'docs/swagger.yaml'), 'utf8')
+  const swaggerDoc = jsyaml.safeLoad(spec)
+
+  app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc))
 
   // Check if the route is not found or HTTP method is not supported
   app.use('*', (req, res) => {

@@ -31,8 +31,8 @@ getEntity.schema = {
  */
 async function create (authUser, upload) {
   const id = uuid()
-  // upload file to s3
-  const objectKey = await helper.uploadToS3(config.UPLOAD_S3_BUCKET, upload, id)
+  // upload file to s3 under uploads folder
+  const objectKey = await helper.uploadToS3(config.UPLOAD_S3_BUCKET, upload, `uploads/${id}`)
 
   const currDate = new Date().toISOString()
   const item = {
@@ -48,9 +48,12 @@ async function create (authUser, upload) {
   // create record in db
   await helper.create(config.AMAZON.DYNAMODB_UPLOAD_TABLE, item)
 
-  const res = _.extend(_.omit(item, 'objectKey'), { url: helper.generateS3Url(objectKey) })
+  const event = _.extend(item, { resource: 'upload' })
+
   // Send Kafka message using bus api
-  await helper.postEvent(config.UPLOAD_CREATE_TOPIC, res)
+  await helper.postEvent(config.UPLOAD_CREATE_TOPIC, event)
+
+  const res = _.extend(_.omit(item, 'objectKey'), { url: helper.generateS3Url(objectKey) })
 
   return res
 }
