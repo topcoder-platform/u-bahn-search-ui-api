@@ -21,7 +21,7 @@ module.exports = {
 
   KAFKA_ERROR_TOPIC: process.env.KAFKA_ERROR_TOPIC || 'common.error.reporting',
   KAFKA_MESSAGE_ORIGINATOR: process.env.KAFKA_MESSAGE_ORIGINATOR || 'ubahn-search-ui-api',
-  UPLOAD_CREATE_TOPIC: process.env.UPLOAD_CREATE_TOPIC || 'ubahn.action.create',
+  UPLOAD_CREATE_TOPIC: process.env.UPLOAD_CREATE_TOPIC || 'u-bahn.action.create',
 
   AMAZON: {
     AWS_ACCESS_KEY_ID: process.env.AWS_ACCESS_KEY_ID,
