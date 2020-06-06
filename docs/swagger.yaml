@@ -12,6 +12,11 @@ tags:
   description: "Template files to serve as reference for multitude of tasks"
 - name: "uploads"
   description: "Upload files for batch processing"
+- name: "skills"
+  description: "Skills endpoints"
+  externalDocs:
+    description: "Proxy to EMSI skills"
+    url: "https://api.emsidata.com/apis/skills-classification#get-search-for-skills"
 schemes:
 - "https"
 - "http"
@@ -185,6 +190,37 @@ paths:
       security:
       - api_key: []
       x-swagger-router-controller: "Uploads"
+  /skills:
+    get:
+      tags:
+      - "skills"
+      summary: "Search for skills by name using the q query parameter"
+      description: "Responds with the skills search result. Proxy api to EMSI"
+      operationId: "getSkills"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "The skill to search for. All special characters must be URL encoded, eg. \"C++ Progr\" should be encoded \"C%2B%2B%20Progr\""
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "Success"
+          schema:
+            $ref: "#/definitions/Skill"
+        "401":
+          $ref: "#/definitions/Unauthorized"
+        "403":
+          $ref: "#/definitions/Forbidden"
+        "404":
+          $ref: "#/definitions/NotFound"
+        "500":
+          $ref: "#/definitions/ServerError"
+      security:
+      - api_key: []
+      x-swagger-router-controller: "Skills"
 securityDefinitions:
   api_key:
     type: "apiKey"
@@ -228,6 +264,26 @@ definitions:
           description: "If status is `failed`, then this field will contain information\
             \ on why the processing failed"
     - $ref: "#/definitions/AuditFields"
+  Skill:
+    allOf:
+    - type: "object"
+      properties:
+        skills:
+          type: "array"
+          items:
+            properties:
+              type:
+                type: string
+                description: The skill type
+                example: 'Hard Skill'
+              id:
+                type: string
+                description: The skill id
+                example: 'KS1200364C9C1LK3V5Q1'
+              name:
+                type: string
+                description: The skill name
+                example: 'C (Programming Language)'
   AuditFields:
     type: "object"
     required:

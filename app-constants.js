@@ -15,7 +15,9 @@ const Scopes = {
   AllUpload: 'all:upload',
   CreateTemplate: 'create:template',
   GetTemplate: 'get:template',
-  AllTemplate: 'all:template'
+  AllTemplate: 'all:template',
+  GetSkill: 'get:skill',
+  AllSkill: 'all:skill'
 }
 
 const AllAuthenticatedUsers = [UserRoles.admin, UserRoles.administrator, UserRoles.topcoderUser, UserRoles.copilot]
