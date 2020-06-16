@@ -75,7 +75,7 @@ module.exports = {
       scopes: [constants.Scopes.GetSkill, constants.Scopes.AllSkill]
     }
   },
-  '/health': {
+  '/ubahnapi/health': {
     get: {
       controller: 'HealthCheckController',
       method: 'check'
