@@ -1,5 +1,9 @@
 # UBahn Search UI API
 
+**OBSOLTE / INACTIVE CODE BASE**
+
+This code base is no longer actively maintained. Please check out [this](https://github.com/topcoder-platform/u-bahn-app) repository where this code base has been moved to (and merged with).
+
 ## Install software
 
 - node 12.x
