@@ -35,7 +35,7 @@
     "tc-bus-api-wrapper": "topcoder-platform/tc-bus-api-wrapper.git#feature/auth0-proxy-server",
     "tc-core-library-js": "github:appirio-tech/tc-core-library-js#v2.6.4",
     "uuid": "^7.0.1",
-    "winston": "^3.2.1"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
     "standard": "^14.3.0"
